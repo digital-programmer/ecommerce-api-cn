@@ -75,10 +75,13 @@ module.exports.updateQuantity = async function (req, res) {
         try {
             let product = await Product.findOne({ id: productID });
             if (product) {
-                if (product.quantity >= update_amount) {
-                    let new_amount = Number(update_amount) + product.quantity;
+                let update_amount_new = Number(update_amount);
+                let product_quantity = Number(product.quantity);
+                let new_amount = update_amount_new + product_quantity
+
+                if (new_amount >= 0) {
                     await Product.findOneAndUpdate({ id: productID }, { $set: { quantity: new_amount } });
-                    return res.json({
+                    return res.status(200).json({
                         message: "Updated successfully",
                         data: {
                             product: {
@@ -87,7 +90,7 @@ module.exports.updateQuantity = async function (req, res) {
                                 quantity: new_amount
                             }
                         }
-                    })
+                    });
                 }
                 return res.status(401).json({
                     data: {
