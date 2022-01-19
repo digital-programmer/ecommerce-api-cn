@@ -1,7 +1,10 @@
 # ecommerce-api-cn
 An API to store, update, delete inventory of an eCommerce Application
 
-## BASE_URL
+### Youtube Link
+<a href="https://youtu.be/mPeLRR5W_EE">https://youtu.be/mPeLRR5W_EE</a>
+
+### BASE_URL
 <a href='https://ecommerce-api-cn.herokuapp.com/'>https://ecommerce-api-cn.herokuapp.com/</a>
 
 ### API to add products to the database
